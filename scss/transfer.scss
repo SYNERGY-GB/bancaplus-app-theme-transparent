@@ -1,0 +1,15 @@
+.appMenu .transfer{
+
+background: url($default-background) no-repeat center;
+background-size: 105%;
+
+.item-input-wrapper {
+	border: 1px solid $container-border-color;
+	background: $secondary-container-background-color;
+	border-radius: 0px;
+}
+
+.ion-search {
+	color: $header-color;
+}
+}

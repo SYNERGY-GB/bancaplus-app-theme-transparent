@@ -1,0 +1,62 @@
+.appMenu .transferSelection {
+
+	background: url($default-background) no-repeat center;
+	background-size: 105%;
+
+	h3{
+
+	}
+
+	h4 {
+		font-size: 16px;
+	}
+
+	.secondaryContainer, .item {
+		border: 0; 
+	}
+
+	.item-content {
+		white-space: normal;
+	}
+
+	.sectionTitle {
+		border:2px solid white;
+		background-color: transparent;
+		h3{
+			font-size:$section-title-font-size;
+		}
+	}
+
+
+	.addBorder {
+		//border-bottom-right-radius: $container-round-corner; 
+		//border-bottom-left-radius: $container-round-corner; 
+	}
+
+	.item-checkbox .checkbox {
+		padding-right:50px;
+	}
+
+	.instrument{
+		color:white;
+		font-size:14px;
+	}
+
+	.item-icon-left .row, .item-icon-left .col, .item-checkbox .row, .item-checkbox .col {
+		padding: 0;
+	}
+
+	button {
+		margin-bottom:20px; 
+	}
+
+	.item-input-wrapper {
+		border: 1px solid $container-border-color;
+		background: $secondary-container-background-color;
+		border-radius: 0px;
+	}
+
+	.ion-search {
+		color: $header-color;
+	}
+}
