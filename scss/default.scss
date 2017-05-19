@@ -7,7 +7,7 @@ h2 {
 h3{
 	font-size:$app-default-item-h3-size;
 	color:white;
-}
+}gu
 
 h6, h5, h4, h3, h2, h1, p {
 	color: $app-default-font-color;
@@ -98,6 +98,7 @@ h3.sectionTitle {
 	border-top: none;
 	border-left: none;
 	border-right: none;
+	border-bottom: none;
 	//border-bottom: 3px solid $header-background-color;
 	button i.icon {
 		color:$header-title-color; 
@@ -106,6 +107,10 @@ h3.sectionTitle {
 	.title {
 		color:$header-title-color; 
 	}
+}
+.amountHeader{
+	margin-top:-10px;
+	text-align:center;
 }
 
 .bar-header span.left-buttons .ion-chevron-left, .bar-header span.right-buttons .ion-navicon {
@@ -174,7 +179,7 @@ ion-side-menu {
 		}
 		height:$menu-option-height; 
 		padding:$menu-option-padding; 
-		background: $menu-background-color;
+		background: transparent;
 	}
 
 	hr {
@@ -308,7 +313,11 @@ ion-side-menu {
 		font-size:$app-default-item-h2-size; 
 	}
 	&.item-select {
+		background-color:transparent;
+		border-bottom:1px solid white;
 		height: 40px;
+		width:100%;
+		margin-left:0;
 		select {
 			background-color:transparent; 
 			max-width: 100%; 
@@ -324,7 +333,10 @@ ion-side-menu {
 	}
 	&#selectRound {
 		margin: 12px 6px 20px 6px; 
-		background-color: $section-title-background-color;
+		background-color: transparent;
+		border:0;
+		border-bottom: 1px solid white;
+		width:100%;
 		color:white; 
 		padding-left:10px;
 		select {
@@ -340,6 +352,20 @@ ion-side-menu {
 .item-input-wrapper {
 	padding-top: 5px;
   padding-bottom: 5px;
+}
+
+.border{
+	border-bottom: 1px solid white;
+}
+
+.input{
+	border-bottom: 1px solid white;
+	border-radius:0px !important;
+}
+
+.no-border{
+	border:0 !important;
+	background-color:transparent;
 }
 
 .app-input  {
@@ -367,7 +393,9 @@ button.app-input {
 	&.activated {
 		border: none; 
  		background-color: $main-color; 
+		 p{
  		color:white;
+		 }
 	}
 }
 
@@ -546,6 +574,12 @@ input:-ms-input-placeholder { /* IE10+ */
 		padding-bottom: 0;
 	}
 
+	.sectionTitle #copyright { 
+		padding-bottom: -10px;
+		margin-top:-10px;
+	}
+
+
 	button#copyrightButton {
 		border-radius: 0;
 		background-color: $header-background-color;
@@ -567,8 +601,9 @@ input:-ms-input-placeholder { /* IE10+ */
 	}
 
 	.secondaryContainer {
-		border:0; 
-		background-color:$app-default-modal-background; 
+		border:0;
+		border-radius:0px; 
+		background:url($default-background) no-repeat center;
 		box-shadow: none; 
 	}
 
@@ -768,6 +803,7 @@ label i.icon.ion-search {
 //Schema Form CSS
 
 .schemaForm {
+	background-color:transparent;
 
 	&.secondaryContainer {
 		padding-top:5px;
@@ -775,6 +811,7 @@ label i.icon.ion-search {
 
 	form {
     	padding: 0px 1px 10px 1px; 
+    	background-color:transparent;
 
     	fieldset, legend {
     		border: none; 
@@ -790,16 +827,16 @@ label i.icon.ion-search {
 		}
 
 		select {
-			color: $text-color; 
+			color: $app-default-font-color; 
 			-webkit-appearance: none; 
 		}
 
 		label.input-select, select, .item.item-select {
-			//color: $text-color; 
+			color: $app-default-font-color; 
 		}
 
 		input[type="text"]::-webkit-input-placeholder {
-  			color: gray  !important;	
+  			color: white  !important;	
 		}
 
 		.sectionTitle.control-label {
@@ -812,16 +849,20 @@ label i.icon.ion-search {
 
 		.item {
 			border-top:0;
-			border-left: 1px solid #E2DBDB;
-			border-right: 1px solid #E2DBDB;
-			boder-radius:30px; 
+			background-color:transparent;
+			border-left:0;
+			border-right: 0;
 			&.item-radio .radio-content {
 				.item-content {
+					background-color:transparent;
 					padding: 12px 45px 12px 10px;
-					margin-left:10%;
+					margin-left:0;
+					//border-bottom:1px white;
+
 				}
 				.radio-icon {
     				padding: 6px 14px;
+    				color:white;
 				} 
 			}
 			&.item-select:after{

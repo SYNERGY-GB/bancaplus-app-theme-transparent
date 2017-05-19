@@ -1,0 +1,103 @@
+<ion-view mz-screen cache-view="false" ng-style="emptyB==false && defaultBackground">
+    <ion-nav-title ng-style="appHeaderText">{{params.title | translate }}</ion-nav-title>
+    <ion-content>
+    	<div ng-if="data.length>0">
+    		<form novalidate name="affiliateForm" autocomplete="off">
+		        <div class="mainContainer">
+		            <div class="sectionTitle" ng-style="sectionTitle">
+		            	<h3 ng-style="sectionTitleText"> {{'transfer_account_origin' | translate}} </h3>
+		            </div>
+		            <div id="accounts" class="secondaryContainer">
+		                <div class="border" ng-repeat="instrument in data" >
+		                	<ion-radio ng-model="sendData.instrumentID"
+		                			   ng-value="instrument.id"  required >
+				    			<div class="row" >
+									<div class="col grow" ng-style="account"> 
+										{{::instrument.name | limitTo: 14}} {{::instrument.maskedAccountNumber | limitTo: -7}} 
+									</div>
+								</div>
+					    	</ion-radio> 
+		                    <hr ng-if="$index<data.length-1"/>
+		                </div>
+		            </div>
+		        </div>
+
+		        <!-- Phone Input -->
+		        <div class="mainContainer">
+		            <div class="sectionTitle" ng-style="sectionTitle">
+		            	<h3 ng-style="sectionTitleText"> {{'phone' | translate}} </h3>
+		            </div>
+		            <div class="secondaryContainer">
+		        		<div class="item-input app-input border" > 
+	                        <input  type="tel" 
+	                                data-ng-model="sendData.phone" 
+	                                name="affiliate_phone" 
+	                                required
+	                                placeholder="{{'p2p_transfer_number_placeholder' | translate}}"
+	                                autocomplete="off"
+	                                autocapitalize="none"
+	                                ng-disabled="true" ng-style="commonText" style="background-color: transparent">
+	                    </div>
+		            </div>
+		        </div>
+
+		        <!-- Email Input -->
+		        <div class="mainContainer">
+		            <div class="sectionTitle"  ng-style="sectionTitle">
+		            	<h3 ng-style="sectionTitleText"> {{'email' | translate}} </h3>
+		            </div>
+		            <div class="secondaryContainer">
+		        		<div class="item-input app-input"> 
+	                        <input  type="email" 
+	                                data-ng-model="sendData.email" 
+	                                name="affiliate_phone" 
+	                                required
+	                                placeholder="{{'p2p_transfer_email_placeholder' | translate}}"
+	                                autocomplete="off"
+	                                autocapitalize="none" ng-style="commonText"/>
+	                    </div>
+		            </div>
+		        </div>
+
+		        <!-- Button Next -->
+		        <div class="text-center padding-top">
+				    <button class="app-input button" ng-disabled="affiliateForm.$invalid" 
+				    		ng-click="goTo()"  ng-style="button">
+				        <p ng-style="buttonText">{{'accept' | translate}} </p>
+				    </button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Button Go Back -->
+        <div ng-if="data.length==0">
+            <h4 class="padding text-center">{{'p2p_no_source_instruments' | translate}} </h4>
+            <div class="padding text-center">
+                <button class="app-input button" ng-click="goBack()" ng-style="button">
+                    <p ng-style="buttonText">{{'go_back' | translate}} </p>
+                </button>
+            </div>
+        </div>
+    </ion-content>
+
+    <style>
+    .item-content{
+    	background-color: transparent !important;
+    	border:0;
+    }
+    .secondaryContainer{
+    	background-color: transparent !important;
+    	border:0;
+    }
+    .item-radio{
+    	border:0;
+    }
+    
+    .item-input{
+    	background-color: transparent;
+    	width: 100%;
+    	border-radius:0px;
+    	border-bottom:1px solid white;
+    }
+    </style>
+</ion-view>

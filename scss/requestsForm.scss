@@ -13,10 +13,7 @@
 		padding-right: 0;
 	}
 
-	sectionTitle{
-		text-align:left;
 
-	}
 	.no-padding-but-right {
 		padding-top: 0;
 		padding-bottom: 0;
@@ -35,10 +32,11 @@
 	.item p {
 		color: $app-default-font-color;
 		font-size: 13px;
+		background-color:transparent;
 	}
 	
 	#info {
-		background-color: white;
+		background-color: transparent;
 
 		.item-icon-left {
 			background: none;
@@ -60,6 +58,7 @@
 	} 
 
  	.schemaForm form {
+ 		background-color:transparent;
 		.form-group {
 			padding: 0;
 		}

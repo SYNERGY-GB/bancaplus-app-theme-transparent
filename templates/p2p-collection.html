@@ -1,0 +1,148 @@
+<ion-view mz-screen cache-view="false" ng-style="emptyB==false && defaultBackground">
+    <ion-nav-title ng-style="appHeaderText">{{params.title | translate }}</ion-nav-title>
+
+    <ion-content>
+        
+        <form novalidate name="debtorForm" autocomplete="off">
+            <div class="mainContainer margin-top">
+                <div class="sectionTitle" ng-style="sectionTitle">
+                    <h3 ng-style="sectionTitleText"> {{'collections' | translate}} </h3>
+                </div>
+                <div class="secondaryContainer animated fadeIn" ng-style="secondaryContainer">
+
+                    <!-- Debt Amount -->
+                    <div class="row">
+                        <div class="item-input app-input col input"> 
+                            <input  type="number" 
+                                    data-ng-model="sendData.debtAmount" 
+                                    name="debtor_amount" 
+                                    required
+                                    placeholder="{{'p2p_collection_debt_amount_placeholder' | translate}}"
+                                    autocomplete="off"
+                                    autocapitalize="none" />
+                        </div>
+                    </div>
+
+                    <!-- Split equallly check-->
+                    <div class="row">
+                        <div class="col no-padding-left ">
+                            <ion-checkbox class="special-checkbox no-padding-left-inner 
+                                                     no-padding-right no-border"
+                                          ng-model="params.splitEquallly"
+                                          ng-click="splitEquallly()">
+                                <p ng-style="commonText">{{'split_equallly' | translate}}</p>             
+                            </ion-checkbox>
+                        </div>
+                    </div>
+
+                    <!-- Concept -->
+                    <div class="row">
+                        <div class="item-input app-input col input"> 
+                            <input  type="text" 
+                                    data-ng-model="sendData.concept" 
+                                    name="debtor_concept" 
+                                    required
+                                    placeholder="{{'p2p_transfer_concept_placeholder' | translate}}"
+                                    autocomplete="off"
+                                    autocapitalize="none" />
+                        </div>
+                    </div>
+
+                    <div ng-repeat="debtor in sendData.debtors">
+                        
+                        <hr class="margin-top"/>
+
+                        <!-- Input select -->
+                        <div class="row">
+                            <div class="col col-50 no-padding-left">
+                                <ion-checkbox class="special-checkbox no-padding-left-inner no-padding-right no-border" 
+                                              ng-model="debtor.phoneToggle"
+                                              ng-click="(debtor.emailToggle = !debtor.phoneToggle);
+                                                        (debtor.debtor = '')">
+                                    <p ng-style="commonText">{{'phone' | translate}}</p>          
+                                </ion-checkbox>
+                            </div>
+                            <div class="col col-50 no-padding-right">
+                                <ion-checkbox class="special-checkbox no-padding-right no-border" 
+                                              ng-model="debtor.emailToggle"
+                                              ng-click="(debtor.phoneToggle = !debtor.emailToggle);
+                                                        (debtor.debtor = '')">
+                                    <p ng-style="commonText">{{'p2p_transfer_email_placeholder' | translate}}</p>            
+                                </ion-checkbox>
+                            </div>
+                        </div>
+
+                        <!-- Debtor -->
+                        <div ng-if="debtor.phoneToggle" class="row margin-bottom code">
+                            <select class="item-input app-input col col-20 no-margin-right input"
+                                    data-ng-model="debtor.debtorCode"
+                                    ng-options="code for code in params.codes"
+                                    required>
+                                <option class="placeholder" value="">
+                                    0000
+                                </option>
+                            </select>
+                            <div class="item-input app-input col input"> 
+                                <input  type="tel" 
+                                        data-ng-model="debtor.debtor" 
+                                        name="debtor_phone" 
+                                        required
+                                        placeholder="{{'p2p_transfer_number_placeholder' | translate}}"
+                                        autocomplete="off"
+                                        autocapitalize="none" />
+                            </div>
+                            <img class="col col-10 col-center" ng-src="{{params.addressBook}}"
+                                 ng-click="goToAddressBook($index)" />
+                        </div>
+                        <div ng-if="debtor.emailToggle" class="row margin-bottom">
+                            <div class="item-input app-input col input"> 
+                                <input  type="email" 
+                                        data-ng-model="debtor.debtor" 
+                                        name="debtor_email" 
+                                        required
+                                        placeholder="{{'p2p_transfer_email_placeholder' | translate}}"
+                                        autocomplete="off"
+                                        autocapitalize="none" />
+                            </div>
+                            <img class="col col-10 col-center" ng-src="{{params.addressBook}}"
+                                 ng-click="goToAddressBook($index)" />
+                        </div>
+
+                        <!-- Amount -->
+                        <div class="row">
+                            <div class="item-input app-input col input"> 
+                                <input  type="number" 
+                                        data-ng-model="debtor.amount" 
+                                        name="debtor_amount" 
+                                        required
+                                        placeholder="{{'p2p_transfer_amount_placeholder' | translate}}"
+                                        autocomplete="off"
+                                        autocapitalize="none" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Add Other -->
+                    <div class="row">
+                        <div class="col no-padding-left">
+                            <ion-checkbox   class="special-checkbox no-padding-left-inner 
+                                                     no-padding-right no-border"
+                                            ng-model="params.addFriend"
+                                            ng-click="addFriend()">
+                                <p ng-style="commonText">{{'add_friend' | translate}}</p>           
+                            </ion-checkbox>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="text-center padding-top">
+                <button class="app-input button" ng-disabled="debtorForm.$invalid" ng-click="goTo()" ng-style="button">
+                    <p ng-style="buttonText">{{'next' | translate}} </p>
+                </button>
+            </div>
+        </form>
+        
+    </ion-content>
+</ion-view>
