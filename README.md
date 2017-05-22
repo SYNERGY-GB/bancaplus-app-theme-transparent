@@ -26,5 +26,5 @@ There are other themes available to apply to Banca+ Móvil:
 
 ## License
 
- © [SYNERGY-GB]()
+ © SYNERGY-GB
 
