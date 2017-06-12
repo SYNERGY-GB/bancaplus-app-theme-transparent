@@ -124,7 +124,7 @@ $app-default-spinner-color: #D9DEE4;
 $app-default-spinner-size: 50px; 
 $app-default-select-text-color: white; 
 $app-default-modal-background: white;
-$app-default-background-color: #142e53; 
+$app-default-background-color: $main-color; 
 $app-default-button-color: $secondary-color;  
 $app-default-button-activated-color: $secondary-color;  
 $app-default-backdrop-color: rgba(0, 0, 0, 0.65); 
